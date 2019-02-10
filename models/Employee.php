@@ -1,24 +1,22 @@
 <?php 
 
-class Conducteur extends Db{
+class Employee extends Db{
 
     protected $id;
     protected $nom;
     protected $prenom;
-    protected $age;
-    protected $codepostal;
-    protected $ville;
-    protected $pays;
+    protected $emploi;
+    protected $idStore;
+    protected $store;
 
-    const TABLE_NAME = 'conducteur';
 
-    public function __construct($nom, $prenom, $age, $codepostal, $ville, $pays, $id = null){
+    const TABLE_NAME = 'employee';
+
+    public function __construct($nom, $prenom, $emploi, Store $store, $id = null){
         $this->setNom($nom);
         $this->setPrenom($prenom);
-        $this->setAge($age);
-        $this->setCodePostal($codepostal);
-        $this->setVille($ville);
-        $this->setPays($pays);
+        $this->setEmploi($emploi);
+        $this->setStore($store);
         $this->setId($id);
         
     }
@@ -35,21 +33,21 @@ class Conducteur extends Db{
         return $this->prenom;
     }
 
-    public function age(){
-        return $this->age;
+    public function emploi(){
+        return $this->emploi;
+    }
+    public function store(){
+        if ($this->store instanceof Store){
+            return $this->store;
+        }
+        $this->store = Store::findOne($this->idStore);
+        return $this->store;
+        
+    }
+    public function idStore(){
+        return $this->idStore;
     }
 
-    public function codepostal(){
-        return $this->codepostal;
-    }
-
-    public function ville(){
-        return $this->ville;
-    }
-
-    public function pays(){
-        return $this->pays;
-    }
 
 
     public function setId($id){
@@ -75,55 +73,32 @@ class Conducteur extends Db{
         $this->prenom = $prenom;
         return $this;
     }
-    public function setAge($age){
-        if (strlen($age) == 0) {
-            throw new Exception('L\'age ne peut pas être vide.');
+    public function setEmploi($emploi){
+        $emploiAccepte = ['manager', 'responsable', 'stagiaire', 'conseiller'];
+
+        if (strlen($emploi) == 0) {
+            throw new Exception('L\'emploi ne peut pas être vide.');
         }
-        if (!intval($age)) {
-            throw new Exception('L\'age doit être un nombre entier');
+        if (!in_array($emploi, $emploiAccepte) ) {
+            throw new Exception('L\'emploi n\'est pas accepté.');
         }
-        $this->age = $age;
+        $this->emploi = $emploi;
         return $this;
     }
-    public function setCodepostal($codepostal){
-        if (strlen($codepostal) == 0) {
-            throw new Exception('Le code postal ne peut pas être vide.');
-        }
-        if (strlen($codepostal) > 10) {
-            throw new Exception('Le code postal ne peut pas être supérieur à 10 caractères.');
-        }
-        $this->codepostal = $codepostal;
+
+    public function setStore(Store $store){
+        $this->idStore = $store->id();
+        $this->store = $store;
         return $this;
     }
-    public function setVille($ville){
-        if (strlen($ville) == 0) {
-            throw new Exception('La ville ne peut pas être vide.');
-        }
-        if (strlen($ville) > 150) {
-            throw new Exception('La ville ne peut pas être supérieur à 150 caractères.');
-        }
-        $this->ville = $ville;
-        return $this;
-    }
-    public function setPays($pays){
-        if (strlen($pays) == 0) {
-            throw new Exception('Le pays ne peut pas être vide.');
-        }
-        if (strlen($pays) > 150) {
-            throw new Exception('Le pays ne peut pas être supérieur à 150 caractères.');
-        }
-        $this->pays = $pays;
-        return $this;
-    }
+
 
     public function save(){
         $data =[
             'nom'           => $this->nom(),
             'prenom'        => $this->prenom(),
-            'age'           => $this->age(),
-            'codepostal'    => $this->codepostal(),
-            'ville'         => $this->ville(),
-            'pays'          => $this->pays()
+            'emploi'        => $this->emploi(),
+            'id_store'      => $this->idStore(),
 
         ]; 
         if ($this->id() > 0) return $this->update();
@@ -142,10 +117,8 @@ class Conducteur extends Db{
             $data = [
                 'nom'           => $this->nom(),
                 'prenom'        => $this->prenom(),
-                'age'           => $this->age(),
-                'codepostal'    => $this->codepostal(),
-                'ville'         => $this->ville(),
-                'pays'          => $this->pays(),
+                'emploi'        => $this->emploi(),
+                'id_store'      => $this->idStore(),
                 "id"            => $this->id()
             ];
 
@@ -164,11 +137,6 @@ class Conducteur extends Db{
         
         Db::dbDelete(self::TABLE_NAME, $data);
 
-        // On supprime aussi toutes les loc
-        Db::dbDelete('location', [
-            'id_conducteur' => $this->id()
-        ]);
-
         return;
     }
 
@@ -181,7 +149,8 @@ class Conducteur extends Db{
 
             foreach ($data as $d) {
 
-                $objectsList[] = new Conducteur($d['nom'], $d['prenom'], $d['age'], $d['codepostal'], $d['ville'], $d['pays'], intval($d['id']));
+                $store = Store::findOne($d['id_store']);
+                $objectsList[] = new Employee ($d['nom'], $d['prenom'], $d['emploi'], $store, intval($d['id']));
             }
             return $objectsList;
         }
@@ -196,7 +165,9 @@ class Conducteur extends Db{
             $objectsList = [];
 
             foreach ($data as $d) {
-                $objectsList[] = new Conducteur($d['nom'], $d['prenom'], $d['age'], $d['codepostal'], $d['ville'], $d['pays'], intval($d['id']));
+
+                $store = Store::findOne($d['id_store']);
+                $objectsList[] = new Employee ($d['nom'], $d['prenom'], $d['emploi'], $store, intval($d['id']));
 
             }
             return $objectsList;
@@ -216,12 +187,18 @@ class Conducteur extends Db{
         else return;
 
         if ($object) {
-            $conducteur = new Conducteur($data['nom'], $data['prenom'], $data['age'], $data['codepostal'], $data['ville'], $data['pays'], intval($data['id']));
-            return $conducteur;
+
+            $store = Store::findOne($data['id_store']);
+            $employee = new Employee ($data['nom'], $data['prenom'], $data['emploi'], $store, intval($data['id']));
+            return $employee;
         }
 
         return $data;
     }
-
-
+    
+    public function locations() {
+        return Location::find([
+            ['id_location', '=', $this->id()]
+        ]);
+    }
 }

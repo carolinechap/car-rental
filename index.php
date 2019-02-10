@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Composer Autoload
  */
@@ -28,3 +30,6 @@ require 'config/helpers.php';
 require 'config/database.php';
 require 'config/Db.php';
 require 'config/routes.php';
+
+
+

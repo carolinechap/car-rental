@@ -2,45 +2,17 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3308
--- Généré le :  ven. 08 fév. 2019 à 16:50
+-- Hôte : localhost:8889
+-- Généré le :  Dim 10 fév. 2019 à 20:43
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `car-rental`
 --
-CREATE DATABASE IF NOT EXISTS `car-rental` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `car-rental`;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `conducteur`
---
-
-DROP TABLE IF EXISTS `conducteur`;
-CREATE TABLE IF NOT EXISTS `conducteur` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `prenom` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `age` int(11) NOT NULL,
-  `codepostal` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ville` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pays` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -48,32 +20,40 @@ CREATE TABLE IF NOT EXISTS `conducteur` (
 -- Structure de la table `location`
 --
 
-DROP TABLE IF EXISTS `location`;
-CREATE TABLE IF NOT EXISTS `location` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `location` (
+  `id` int(11) NOT NULL,
   `id_voiture` int(11) NOT NULL,
   `id_conducteur` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `id_employee` int(11) NOT NULL,
+  `ville` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_debut_location` datetime NOT NULL,
+  `date_fin_location` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `voiture`
+-- Déchargement des données de la table `location`
 --
 
-DROP TABLE IF EXISTS `voiture`;
-CREATE TABLE IF NOT EXISTS `voiture` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `marque` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `modele` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `annee_mise_location` datetime NOT NULL,
-  `plaque_immat` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `couleur` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-COMMIT;
+INSERT INTO `location` (`id`, `id_voiture`, `id_conducteur`, `id_employee`, `ville`, `date_debut_location`, `date_fin_location`) VALUES
+(1, 2, 2, 3, 'Mâcon', '2019-02-01 00:00:00', '2019-02-06 00:00:00'),
+(2, 3, 1, 2, 'Montréal', '2019-02-02 00:00:00', '2019-02-06 00:00:00');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

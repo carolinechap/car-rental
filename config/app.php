@@ -9,7 +9,7 @@ class_alias('\Bramus\Router\Router', 'Router');
  * Constantes : éléments de configuration propres au système
  */
 const WEBSITE_TITLE = "Location de voiture";
-const BASE_URL = "http://localhost/car-rental";
+const BASE_URL = "http://localhost:8888/car-rental";
 
 /**
  * Liste des dossiers source pour l'autoload des classes
