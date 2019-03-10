@@ -1,17 +1,15 @@
 <?php ob_start(); ?>
-<div class="container-fluid intro">
-<div class="container">
-  <div class="navbar">
-      <a class="navbar-brand" href="<?= url('/'); ?>">
-        <h1>Location de voiture</h1>
-      </a>
-      <?php view('links'); ?>
-    </div>
-  </div>
+<div class="container-fluid intro px-0">
+
+
+<div class="container pt-5">
+
 <section id="intro">
   <div class="slogan">
-    <h2>Location de voiture</h2>
-    <h4>Projet PHP POO sous une architecture MVC</h4>
+    <h2>Location de voitures</h2>
+    <h4>Projet de dashboard d'une agence de location de voitures</h4>
+    <a class="btn btn-secondary my-5 btn-lg d-flex justify-content-center"  href="<?= url('signup') ?>">S'inscrire</a>
+    <a class="btn btn-secondary my-5 btn-lg d-flex justify-content-center"  href="<?= url('login') ?>">Se connecter</a>
   </div>
 </section>
 </div>

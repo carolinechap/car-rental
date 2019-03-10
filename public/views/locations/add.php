@@ -5,7 +5,6 @@
 <form action="<?= url('locations/save') ?>" method="post">
 
     <input class="form-control" type="text" name="ville" placeholder="Ville">
-    <input class="form-control" type="text" name="pays" placeholder="Pays">
     <select name="id_conducteur">
         <?php foreach($conducteurs as $c) : ?>
 
@@ -42,7 +41,7 @@
     <input class="form-control" type="date" name="date_debut_location" placeholder="Date de début">
     <input class="form-control" type="date" name="date_fin_location" placeholder="Date de fin">
 
-    <button class="btn btn-primary" type="submit">Ajouter une agence</button>
+    <button class="btn btn-primary" type="submit">Ajouter une location</button>
 
 </form>
 

@@ -27,10 +27,18 @@ class LocationsController {
         $dateFin = new DateTime($_POST['date_fin_location']);
 
         $employee = Employee::findOne($_POST['id_employee']);
-        
-    
-        $location = new Location($_POST['id_voiture'], $_POST['id_conducteur'], $employee, $_POST['ville'], $dateDeb, $dateFin);
+
+        $location = new Location(
+            $_POST['id_voiture'],
+            $_POST['id_conducteur'],
+            $employee,
+            $_POST['ville'],
+            $dateDeb,
+            $dateFin
+        );
         $location->save();
+        var_dump($location);
+
         // Header('Location: '. url('locations'));
         // exit();
     }

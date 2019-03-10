@@ -56,16 +56,26 @@ class Location extends Db {
     }
     public function dateDebutLoc(){
         $dateDeb = new DateTime($this->dateDebutLoc);
-        $dateFrDeb = $dateDeb->format('Y-m-d H:i:s');
+        $dateFrDeb = $dateDeb->format('d/m/Y');
         return $dateFrDeb;
     }
-    public function dateFinLoc(){
-        $dateFin = new DateTime($this->dateFinLoc);
-        $dateFrFin = $dateFin->format('Y-m-d H:i:s');
-        return $dateFrFin;
+    public function dateDebutLocUs(){
+        $dateDeb = new DateTime($this->dateDebutLoc);
+        $dateUsDeb = $dateDeb->format('Y-m-d');
+        return $dateUsDeb;
     }
 
 
+    public function dateFinLoc(){
+        $dateFin = new DateTime($this->dateFinLoc);
+        $dateFrFin = $dateFin->format('d/m/Y');
+        return $dateFrFin;
+    }
+    public function dateFinLocUs(){
+        $dateFin = new DateTime($this->dateFinLoc);
+        $dateUsFin = $dateFin->format('Y-m-d');
+        return $dateUsFin;
+    }
 
     public function setId($id)
     {
@@ -122,8 +132,8 @@ class Location extends Db {
             "id_voiture"            => $this->idVoiture(),
             "ville"                 => $this->ville(),
             "id_employee"           => $this->idEmployee(),
-            "date_debut_location"   => $this->dateDebutLoc(),
-            "date_fin_location"     => $this->dateFinLoc(),
+            "date_debut_location"   => $this->dateDebutLocUs(),
+            "date_fin_location"     => $this->dateFinLocUs(),
         ];
 
         if ($this->id > 0) return $this->update();
@@ -176,8 +186,8 @@ class Location extends Db {
             foreach ($data as $d) {
 
                 $employee = Employee::findOne($d['id_employee']);
-                $dateDeb = new DateTime($_POST['date_debut_location']);
-                $dateFin = new DateTime($_POST['date_fin_location']);
+                $dateDeb = new DateTime($d['date_debut_location']);
+                $dateFin = new DateTime($d['date_fin_location']);
 
                 $objectsList[] = new Location($d['id_conducteur'], $d['id_voiture'], $employee, $d['ville'], $dateDeb, $dateFin, intval($d['id']));
             }
@@ -197,8 +207,8 @@ class Location extends Db {
 
             foreach ($data as $d) {
                 $employee = Employee::findOne($d['id_employee']);
-                $dateDeb = new DateTime($_POST['date_debut_location']);
-                $dateFin = new DateTime($_POST['date_fin_location']);
+                $dateDeb = new DateTime($d['date_debut_location']);
+                $dateFin = new DateTime($d['date_fin_location']);
 
                 $objectsList[] = new Location($d['id_conducteur'], $d['id_voiture'], $employee, $d['ville'], $dateDeb, $dateFin, intval($d['id']));
             }
@@ -221,8 +231,8 @@ class Location extends Db {
 
         if ($object) {
             $employee = Employee::findOne($data['id_employee']);
-            $dateDeb = new DateTime($_POST['date_debut_location']);
-            $dateFin = new DateTime($_POST['date_fin_location']);
+            $dateDeb = new DateTime($data['date_debut_location']);
+            $dateFin = new DateTime($data['date_fin_location']);
 
             $locations = new Location($data['id_conducteur'], $data['id_voiture'], $employee, $data['ville'], $dateDeb, $dateFin, intval($d['id']));
             return $locations;

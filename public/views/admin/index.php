@@ -3,30 +3,25 @@
 
 <div class="heading-about">
   <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
       <div class="col-lg-8 col-lg-offset-2">
-        <div class="wow bounceInDown" data-wow-delay="0.4s">
           <div class="section-heading">
-            <h2>Tableau de bord</h2>
+            <h2 class="text-center">Tableau de bord</h2>
           </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-2 col-lg-offset-5">
-      <hr class="marginbot-50">
+    <div class="col-12">
+      <hr>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
       <div class="wow fadeInLeft" data-wow-delay="0.2s">
         <div class="service-box">
-          <div class="service-icon">
-            <img src="img/icons/service-icon-1.png" alt="" />
-          </div>
           <div class="service-desc">
             <h5>Ajouter une voiture</h5>
             <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>

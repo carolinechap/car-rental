@@ -34,6 +34,9 @@ class Conducteur extends Db{
     public function prenom(){
         return $this->prenom;
     }
+    public function nomComplet() {
+        return $this->prenom() . ' ' . $this->nom();
+    }
 
     public function age(){
         return $this->age;
@@ -49,6 +52,9 @@ class Conducteur extends Db{
 
     public function pays(){
         return $this->pays;
+    }
+    public function adresseComplete() {
+        return $this->codePostal() . ' ' . $this->ville() . ' (' . $this->pays() . ')';
     }
 
 

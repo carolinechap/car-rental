@@ -91,6 +91,10 @@ class Employee extends Db{
         $this->store = $store;
         return $this;
     }
+    
+    public function nomComplet(){
+        return $this->nom() . ' - ' . $this->prenom();
+    }
 
 
     public function save(){
@@ -199,6 +203,11 @@ class Employee extends Db{
     public function locations() {
         return Location::find([
             ['id_location', '=', $this->id()]
+        ]);
+    }
+    public function admins() {
+        return Admin::find([
+            ['id_employee', '=', $this->id()]
         ]);
     }
 }
