@@ -1,3 +1,42 @@
+[2019-03-11 10:15:03] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 10:15:03] SELECT * FROM employee WHERE `id` = '3'
+[2019-03-11 10:15:03] SELECT * FROM admin WHERE `email` = 'caroline2chapeau@gmail.com'
+[2019-03-11 10:14:45] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 10:14:45] SELECT * FROM employee WHERE `id` = '3'
+[2019-03-11 10:14:45] SELECT * FROM admin WHERE `email` = 'caroline2chapeau@gmail.com'
+[2019-03-11 10:00:39] SELECT * FROM conducteur
+[2019-03-11 09:56:30] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 09:56:30] SELECT * FROM employee WHERE `id` = '3'
+[2019-03-11 09:56:30] SELECT * FROM admin WHERE `email` = 'caroline2chapeau@gmail.com'
+[2019-03-11 09:45:45] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 09:45:45] SELECT * FROM employee WHERE `id` = '3'
+[2019-03-11 09:45:45] SELECT * FROM admin WHERE `email` = 'caroline2chapeau@gmail.com'
+[2019-03-11 09:41:28] SELECT * FROM store WHERE `id` = '3'
+[2019-03-11 09:41:28] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 09:41:28] SELECT * FROM store WHERE `id` = '3'
+[2019-03-11 09:41:28] SELECT * FROM store WHERE `id` = '4'
+[2019-03-11 09:41:28] SELECT * FROM employee
+[2019-03-11 09:41:28] SELECT * FROM voiture
+[2019-03-11 09:41:28] SELECT * FROM conducteur
+[2019-03-11 09:41:22] SELECT * FROM conducteur WHERE `id` = '4'
+[2019-03-11 09:41:22] SELECT * FROM conducteur WHERE `id` = '3'
+[2019-03-11 09:41:22] SELECT * FROM conducteur WHERE `id` = '2'
+[2019-03-11 09:41:22] SELECT * FROM store WHERE `id` = '3'
+[2019-03-11 09:41:22] SELECT * FROM employee WHERE `id` = '4'
+[2019-03-11 09:41:22] SELECT * FROM store WHERE `id` = '4'
+[2019-03-11 09:41:22] SELECT * FROM employee WHERE `id` = '1'
+[2019-03-11 09:41:22] SELECT * FROM store WHERE `id` = '3'
+[2019-03-11 09:41:22] SELECT * FROM employee WHERE `id` = '2'
+[2019-03-11 09:41:22] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 09:41:22] SELECT * FROM employee WHERE `id` = '3'
+[2019-03-11 09:41:22] SELECT * FROM location
+[2019-03-11 09:41:21] SELECT * FROM store WHERE `id` = '3'
+[2019-03-11 09:41:21] SELECT * FROM store WHERE `id` = '2'
+[2019-03-11 09:41:21] SELECT * FROM store WHERE `id` = '3'
+[2019-03-11 09:41:21] SELECT * FROM store WHERE `id` = '4'
+[2019-03-11 09:41:21] SELECT * FROM employee
+[2019-03-11 09:41:21] SELECT * FROM voiture
+[2019-03-11 09:41:21] SELECT * FROM conducteur
 [2019-03-10 20:21:08] SELECT * FROM conducteur WHERE `id` = '4'
 [2019-03-10 20:21:08] SELECT * FROM conducteur WHERE `id` = '3'
 [2019-03-10 20:21:08] SELECT * FROM conducteur WHERE `id` = '2'
