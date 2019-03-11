@@ -8,8 +8,8 @@ class_alias('\Bramus\Router\Router', 'Router');
 /**
  * Constantes : éléments de configuration propres au système
  */
-const WEBSITE_TITLE = "Location de voiture";
-const BASE_URL = "http://localhost:8888/car-rental";
+$GLOBALS['WEBSITE_TITLE'] = getenv('WEBSITE_TITLE');
+$GLOBALS['BASE_URL'] = getenv('BASE_URL');
 
 /**
  * Liste des dossiers source pour l'autoload des classes
@@ -18,4 +18,5 @@ const CLASSES_SOURCES = [
     'controllers',
     'config',
     'models',
+    'managers'
 ];

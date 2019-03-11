@@ -1,6 +1,6 @@
 <?php 
 
-class Conducteur extends Db{
+class Conducteur extends AbstractModel {
 
     protected $id;
     protected $nom;
@@ -10,9 +10,8 @@ class Conducteur extends Db{
     protected $ville;
     protected $pays;
 
-    const TABLE_NAME = 'conducteur';
-
     public function __construct($nom, $prenom, $age, $codepostal, $ville, $pays, $id = null){
+
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setAge($age);
@@ -120,113 +119,6 @@ class Conducteur extends Db{
         }
         $this->pays = $pays;
         return $this;
-    }
-
-    public function save(){
-        $data =[
-            'nom'           => $this->nom(),
-            'prenom'        => $this->prenom(),
-            'age'           => $this->age(),
-            'codepostal'    => $this->codepostal(),
-            'ville'         => $this->ville(),
-            'pays'          => $this->pays()
-
-        ]; 
-        if ($this->id() > 0) return $this->update();
-
-        $nouvelElem = Db::dbCreate(self::TABLE_NAME, $data);
-
-        $this->setId($nouvelElem);
-
-        return $this;
-    }
-
-    public function update() {
-
-        if ($this->id > 0) {
-
-            $data = [
-                'nom'           => $this->nom(),
-                'prenom'        => $this->prenom(),
-                'age'           => $this->age(),
-                'codepostal'    => $this->codepostal(),
-                'ville'         => $this->ville(),
-                'pays'          => $this->pays(),
-                "id"            => $this->id()
-            ];
-
-            Db::dbUpdate(self::TABLE_NAME, $data);
-
-            return $this;
-        }
-
-        return;
-    }
-
-    public function delete() {
-        $data = [
-            'id' => $this->id(),
-        ];
-        
-        Db::dbDelete(self::TABLE_NAME, $data);
-
-        // On supprime aussi toutes les loc
-        Db::dbDelete('location', [
-            'id_conducteur' => $this->id()
-        ]);
-
-        return;
-    }
-
-    public static function findAll($objects = true) {
-
-        $data = Db::dbFind(self::TABLE_NAME);
-        
-        if ($objects) {
-            $objectsList = [];
-
-            foreach ($data as $d) {
-
-                $objectsList[] = new Conducteur($d['nom'], $d['prenom'], $d['age'], $d['codepostal'], $d['ville'], $d['pays'], intval($d['id']));
-            }
-            return $objectsList;
-        }
-
-        return $data;
-    }
-    public static function find(array $request, $objects = true) {
-
-        $data = Db::dbFind(self::TABLE_NAME, $request);
-
-        if ($objects) {
-            $objectsList = [];
-
-            foreach ($data as $d) {
-                $objectsList[] = new Conducteur($d['nom'], $d['prenom'], $d['age'], $d['codepostal'], $d['ville'], $d['pays'], intval($d['id']));
-
-            }
-            return $objectsList;
-        }
-
-        return $data;
-    }
-    public static function findOne(int $id, $object = true) {
-
-        $request = [
-            ['id', '=', $id]
-        ];
-
-        $data = Db::dbFind(self::TABLE_NAME, $request);
-
-        if (count($data) > 0) $data = $data[0];
-        else return;
-
-        if ($object) {
-            $conducteur = new Conducteur($data['nom'], $data['prenom'], $data['age'], $data['codepostal'], $data['ville'], $data['pays'], intval($data['id']));
-            return $conducteur;
-        }
-
-        return $data;
     }
 
 

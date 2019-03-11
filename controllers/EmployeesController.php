@@ -2,34 +2,45 @@
 
 class EmployeesController {
 
+    private $manager;
+
+    public function __construct(){
+        $this->manager = new EmployeeManager;
+    }
+
     public function index() {
-        $employees = Employee::findAll();
-        view('employees.index', compact('employees'));
+        $sm = new StoreManager;
+        $stores =  $sm->findAll();
+        $employees = $this->manager->findAll();
+        view('employees.index', compact('employees', 'stores'));
     }
 
     public function show($id) {
-        $employee = Employee::findOne($id);
+        $employee = $this->manager->findOne($id);
         view('employees.show', compact('employee'));
     }
 
     public function add() {
-        $stores = Store::findAll();
+        $sm = new StoreManager;
+
+        $stores = $sm->findAll();
         view('employees.add', compact('stores'));
     }
 
     public function save() {
 
-        $store = Store::findOne($_POST['id_store']);
-        
+        $sm = new StoreManager;
+        $store = $sm->findOne($_POST['id_store']);
+
         $employee = new Employee($_POST['nom'], $_POST['prenom'], $_POST['emploi'], $store);
-        $employee->save();
+        $this->manager->save($employee);
         // Header('Location: '. url(''));
         // exit();
     }
 
     public function delete($id) {
-        $employee = Employee::findOne($id);
-        $employee->delete();
+        $employee = $this->manager->findOne($id);
+        $this->manager->delete($employee);
         // Header('Location: '. url(''));
         // exit();
     }

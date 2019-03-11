@@ -7,7 +7,9 @@ class AdminController {
     }
 
     public function show($id) {
-        $conducteur = Conducteur::findOne($id);
+
+        $cm = new ConducteurManager;
+        $conducteur = $cm->findOne($id);
         view('conducteurs.show', compact('conducteur'));
     }
 
@@ -17,14 +19,21 @@ class AdminController {
 
     public function save() {
         $conducteur = new Conducteur($_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['codepostal'], $_POST['ville'], $_POST['pays'], $_POST['id']);
-        $conducteur->save();
+
+        $cm = new ConducteurManager;
+        $cm->save($conducteur);
+
         // Header('Location: '. url('conducteurs'));
         // exit();
     }
 
     public function delete($id) {
-        $conducteur = Conducteur::findOne($id);
-        $conducteur->delete();
+
+        $cm = new ConducteurManager;
+        $conducteur = $cm->findOne($id);
+
+        $cm->delete($conducteur);
+
         // Header('Location: '. url('conducteurs'));
         // exit();
     }

@@ -2,21 +2,31 @@
 
 class LocationsController {
 
+    private $manager;
+
+    public function __construct(){
+        $this->manager = new LocationManager;
+    }
+
     public function index() {
-        $locations = Location::findAll();
+        $locations = $this->manager->findAll();
         view('locations.index', compact('locations'));
     }
 
     public function show($id) {
-        $location = Location::findOne($id);
+        $location = $this->manager->findOne($id);
         view('locations.show', compact('location'));
     }
 
     public function add() {
 
-        $conducteurs = Conducteur::findAll();
-        $voitures = Voiture::findAll();
-        $employees = Employee::findAll();
+        $cm = new ConducteurManager;
+        $vm = new VoitureManager;
+        $em = new EmployeeManager;
+
+        $conducteurs = $cm->findAll();
+        $voitures = $vm->findAll();
+        $employees = $em->findAll();
 
         view('locations.add', compact('conducteurs', 'voitures', 'employees'));
     }
@@ -26,7 +36,9 @@ class LocationsController {
         $dateDeb = new DateTime($_POST['date_debut_location']);
         $dateFin = new DateTime($_POST['date_fin_location']);
 
-        $employee = Employee::findOne($_POST['id_employee']);
+        $em = new EmployeeManager;
+
+        $employee = $em->findOne($_POST['id_employee']);
 
         $location = new Location(
             $_POST['id_voiture'],
@@ -36,17 +48,16 @@ class LocationsController {
             $dateDeb,
             $dateFin
         );
-        $location->save();
-        var_dump($location);
+        $this->manager->save($location);
 
-        // Header('Location: '. url('locations'));
+        Header('Location: '. url('locations'));
         // exit();
     }
 
     public function delete($id) {
-        $location = Location::findOne($id);
-        $location->delete();
-        // Header('Location: '. url('voitures'));
+        $location = $this->manager->findOne($id);
+        $this->manager->delete($location);
+        Header('Location: '. url('locations'));
         // exit();
     }
 }

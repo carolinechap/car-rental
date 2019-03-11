@@ -2,13 +2,19 @@
 
 class StoresController {
 
+    private $manager;
+
+    public function __construct(){
+        $this->manager = new StoreManager;
+    }
+
     public function index() {
-        $stores = Store::findAll();
+        $stores = $this->manager->findAll();
         view('stores.index', compact('stores'));
     }
 
     public function show($id) {
-        $store = Store::findOne($id);
+        $store = $this->manager->findOne($id);
         view('stores.show', compact('store'));
     }
 
@@ -17,15 +23,16 @@ class StoresController {
     }
 
     public function save() {
-        $store = new Store($_POST['ville'], $_POST['pays'], $_POST['id']);
-        $store->save();
-        // Header('Location: '. url('conducteurs'));
+        $store = new Store($_POST['ville'], $_POST['pays']);
+
+        $this->manager->save($store);
+        Header('Location: '. url('stores'));
         // exit();
     }
 
     public function delete($id) {
-        $store = Store::findOne($id);
-        $store->delete();
+        $store = $this->manager->findOne($id);
+        $this->manager->delete($store);
         // Header('Location: '. url('conducteurs'));
         // exit();
     }

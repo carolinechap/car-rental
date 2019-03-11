@@ -43,6 +43,8 @@
           <p>Depuis quelle ville ? <br>
           <?= $location->ville() ;?></p>
         </div>
+        <a class="delete" href="<?= url('locations/delete/' . $location->id()) ?>"><i class="fas fa-trash"></i></a>
+
     </div>
         <?php }?>
       </div>

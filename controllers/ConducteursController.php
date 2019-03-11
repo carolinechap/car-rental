@@ -2,13 +2,19 @@
 
 class ConducteursController {
 
+    private $manager;
+
+    public function __construct() {
+        $this->manager = new ConducteurManager;
+    }
+
     public function index() {
-        $conducteurs = Conducteur::findAll();
+        $conducteurs = $this->manager->findAll();
         view('conducteurs.index', compact('conducteurs'));
     }
 
     public function show($id) {
-        $conducteur = Conducteur::findOne($id);
+        $conducteur = $this->manager->findOne($id);
         view('conducteurs.show', compact('conducteur'));
     }
 
@@ -18,14 +24,15 @@ class ConducteursController {
 
     public function save() {
         $conducteur = new Conducteur($_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['codepostal'], $_POST['ville'], $_POST['pays']);
-        $conducteur->save();
-        // Header('Location: '. url('conducteurs'));
+        $this->manager->save($conducteur);
+        Header('Location: '. url('conducteurs'));
         // exit();
     }
 
     public function delete($id) {
-        $conducteur = Conducteur::findOne($id);
-        $conducteur->delete();
+        $conducteur = $this->manager->findOne($id);
+        $this->manager->delete($conducteur);
+        var_dump($conducteur);
         // Header('Location: '. url('conducteurs'));
         // exit();
     }

@@ -5,7 +5,7 @@ class Db {
     protected static function getDb() {
         try {
             // Essaie de faire ce script...
-            $bdd = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset=utf8;port='.DB_PORT, DB_USER, DB_PWD);
+            $bdd = new PDO('mysql:host='.$GLOBALS['DB_HOST'].';dbname='.$GLOBALS['DB_NAME'].';charset=utf8;port='.$GLOBALS['DB_PORT'], $GLOBALS['DB_USER'], $GLOBALS['DB_PWD']);
         }
         catch (Exception $e) {
             // Sinon, capture l'erreur et affiche la

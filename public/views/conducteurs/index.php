@@ -39,6 +39,7 @@
             <?= $conducteur->adresseComplete() ;?>
           </p>
         </div>
+        <a class="delete" href="<?= url('conducteurs/delete/' . $conducteur->id()) ?>"><i class="fas fa-trash"></i></a>
     </div>
         <?php }?>
       </div>

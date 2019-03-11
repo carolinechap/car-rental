@@ -7,19 +7,19 @@ function dd($var) {
 }
 
 function url($route) {
-    return BASE_URL . '/'. $route;
+    return $GLOBALS['BASE_URL'] . '/'. $route;
 }
 
 function img_url($img) {
-    return BASE_URL . '/public/assets/img' . $img;
+    return $GLOBALS['BASE_URL'] . '/public/assets/img' . $img;
 }
 
 function css_url($css) {
-    return BASE_URL . '/public/assets/css' . $css;
+    return $GLOBALS['BASE_URL'] . '/public/assets/css' . $css;
 }
 
 function js_url($js) {
-    return BASE_URL . '/public/assets/js' . $js;
+    return $GLOBALS['BASE_URL'] . '/public/assets/js' . $js;
 }
 
 function view($path, $vars = null, $include = true) {

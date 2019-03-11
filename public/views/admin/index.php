@@ -33,9 +33,6 @@
     <div class="col-md-4">
       <div class="wow fadeInUp" data-wow-delay="0.2s">
         <div class="service-box">
-          <div class="service-icon">
-            <img src="img/icons/service-icon-2.png" alt="" />
-          </div>
           <div class="service-desc">
           <h5>Ajouter un conducteur</h5>
             <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
@@ -47,9 +44,6 @@
     <div class="col-md-4">
       <div class="wow fadeInUp" data-wow-delay="0.2s">
         <div class="service-box">
-          <div class="service-icon">
-            <img src="img/icons/service-icon-3.png" alt="" />
-          </div>
           <div class="service-desc">
           <h5>Ajouter une location</h5>
             <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
@@ -61,9 +55,6 @@
     <div class="col-md-4">
       <div class="wow fadeInUp" data-wow-delay="0.2s">
         <div class="service-box">
-          <div class="service-icon">
-            <img src="img/icons/service-icon-3.png" alt="" />
-          </div>
           <div class="service-desc">
           <h5>Ajouter un employé</h5>
             <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
@@ -75,13 +66,10 @@
     <div class="col-md-4">
       <div class="wow fadeInUp" data-wow-delay="0.2s">
         <div class="service-box">
-          <div class="service-icon">
-            <img src="img/icons/service-icon-3.png" alt="" />
-          </div>
           <div class="service-desc">
           <h5>Ajouter une agence</h5>
             <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-            <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('agences/add') ?>">Ajouter</a>
+            <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('stores/add') ?>">Ajouter</a>
           </div>
         </div>
       </div>

@@ -6,6 +6,9 @@ session_start();
  */
 require __DIR__ . '/vendor/autoload.php';
 
+$dotenv = new Symfony\Component\Dotenv\Dotenv();
+$dotenv->load(__DIR__ . '/.env');
+
 /**
  * Autoload du MVC : cette fonction nous permet de charger nos classes dynamiquement au moment précis où on en a besoin, plutôt que de charger toutes nos classes d'un seul coup. On passe en argument "CLASSES_SOURCES" qui est une constante qui est définie dans app.php
  */
