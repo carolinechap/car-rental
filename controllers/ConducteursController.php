@@ -33,7 +33,7 @@ class ConducteursController {
         $conducteur = $this->manager->findOne($id);
         $this->manager->delete($conducteur);
         var_dump($conducteur);
-        // Header('Location: '. url('conducteurs'));
+        Header('Location: '. url('conducteurs'));
         // exit();
     }
 }

@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<section id="service" class="home-section text-center bg-gray">
+<section id="service" class="home-section text-center">
 
   <div class="heading-about">
     <div class="container">

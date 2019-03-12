@@ -8,8 +8,14 @@
   <div class="slogan">
     <h2>Location de voitures</h2>
     <h4>Projet de dashboard d'une agence de location de voitures</h4>
-    <a class="btn btn-secondary my-5 btn-lg d-flex justify-content-center"  href="<?= url('signup') ?>">S'inscrire</a>
-    <a class="btn btn-secondary my-5 btn-lg d-flex justify-content-center"  href="<?= url('login') ?>">Se connecter</a>
+    <?php  if (isset($_SESSION['admin'])) { ?>
+    <?php }
+    else{ ?>
+      <a class="btn btn-secondary my-5 btn-lg d-flex justify-content-center"  href="<?= url('signup') ?>">S'inscrire</a>
+      <a class="btn btn-secondary my-5 btn-lg d-flex justify-content-center"  href="<?= url('login') ?>">Se connecter</a>
+  
+    <?php } ?>
+  
   </div>
 </section>
 </div>

@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<section id="service" class="home-section text-center bg-gray">
+<section id="service" class="home-section text-center">
 
   <div class="heading-about">
     <div class="container">
@@ -24,10 +24,13 @@
             </div>
         </div>
       </div>
+      <div class="row">
+
+   
       <?php
     foreach ($voitures as $voiture) {
      ?>
-      <div class="col-md-3">
+      <div class="col-md-3 mb-5">
         <div>
           <h5>
             <?= $voiture->marque() ;?> -
@@ -45,6 +48,7 @@
         </div>
     </div>
         <?php }?>
+        </div>
       </div>
     </div>
 </section>

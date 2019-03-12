@@ -21,7 +21,7 @@ class LocationManager extends AbstractManager {
             "date_fin_location"     => $location->dateFinLocUs(),
         ];
 
-        if ($location->id > 0) return $this->update();
+        if ($location->id() > 0) return $this->update();
 
         $nouvelElem = Db::dbCreate($this->tableName, $data);
 
@@ -32,7 +32,7 @@ class LocationManager extends AbstractManager {
 
     public function update(Location $location) {
 
-        if ($location->id > 0) {
+        if ($location->id() > 0) {
 
             $data = [
                 "id_conducteur"         => $location->idConducteur(),
@@ -75,7 +75,7 @@ class LocationManager extends AbstractManager {
                 $dateDeb = new DateTime($d['date_debut_location']);
                 $dateFin = new DateTime($d['date_fin_location']);
 
-                $objectsList[] = new Location($d['id_conducteur'], $d['id_voiture'], $employee, $d['ville'], $dateDeb, $dateFin, intval($d['id']));
+                $objectsList[] = new Location($d['id_voiture'], $d['id_conducteur'], $employee, $d['ville'], $dateDeb, $dateFin, intval($d['id']));
             }
 
             return $objectsList;
@@ -97,7 +97,7 @@ class LocationManager extends AbstractManager {
                 $dateDeb = new DateTime($d['date_debut_location']);
                 $dateFin = new DateTime($d['date_fin_location']);
 
-                $objectsList[] = new Location($d['id_conducteur'], $d['id_voiture'], $employee, $d['ville'], $dateDeb, $dateFin, intval($d['id']));
+                $objectsList[] = new Location($d['id_voiture'], $d['id_conducteur'], $employee, $d['ville'], $dateDeb, $dateFin, intval($d['id']));
             }
             return $objectsList;
         }
@@ -122,7 +122,7 @@ class LocationManager extends AbstractManager {
             $dateDeb = new DateTime($data['date_debut_location']);
             $dateFin = new DateTime($data['date_fin_location']);
 
-            $locations = new Location($data['id_conducteur'], $data['id_voiture'], $employee, $data['ville'], $dateDeb, $dateFin, intval($data['id']));
+            $locations = new Location($data['id_voiture'], $data['id_conducteur'], $employee, $data['ville'], $dateDeb, $dateFin, intval($data['id']));
             return $locations;
         }
 

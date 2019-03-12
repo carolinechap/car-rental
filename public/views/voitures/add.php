@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
-<section id="service" class="home-section text-center bg-gray">
+<section id="service" class="home-section text-center">
 
-<h1 class="mt-5">Ajouter une voiture</h1>
+<h2 class="text-center mt-5">Ajouter une voiture</h2>
 
 <form action="<?= url('voitures/save') ?>" method="post">
 

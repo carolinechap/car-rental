@@ -27,7 +27,7 @@ class StoreManager extends AbstractManager {
 
     public function update(Store $store) {
 
-        if ($store->id > 0) {
+        if ($store->id() > 0) {
 
             $data = [
                 'ville'             => $store->ville(),

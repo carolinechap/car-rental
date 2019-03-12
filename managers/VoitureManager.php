@@ -31,7 +31,7 @@ class VoitureManager extends AbstractManager {
 
     public function update(Voiture $voiture) {
 
-        if ($voiture->id > 0) {
+        if ($voiture->id() > 0) {
 
             $data = [
                 'marque'                => $voiture->marque(),
@@ -109,8 +109,8 @@ class VoitureManager extends AbstractManager {
         else return;
 
         if ($object) {
-            $date = new DateTime($d['annee_mise_location']);
-            $voiture = new Voiture($d['marque'], $d['modele'], $date, $d['plaque_immat'], $d['couleur'], intval($d['id']));
+            $date = new DateTime($data['annee_mise_location']);
+            $voiture = new Voiture($data['marque'], $data['modele'], $date, $data['plaque_immat'], $data['couleur'], intval($data['id']));
             return $voiture;
         }
 

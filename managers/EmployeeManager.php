@@ -29,7 +29,7 @@ class EmployeeManager extends AbstractManager {
 
     public function update(Employee $employee) {
 
-        if ($this->id > 0) {
+        if ($employee->id() > 0) {
 
             $data = [
                 'nom'           => $employee->nom(),

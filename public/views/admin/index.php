@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<section id="service" class="home-section text-center bg-gray">
+<section id="service" class="home-section text-center">
 
 <div class="heading-about">
   <div class="container">
@@ -24,7 +24,7 @@
         <div class="service-box">
           <div class="service-desc">
             <h5>Ajouter une voiture</h5>
-            <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+            <p>L'agence vient d'acquérir un nouveau véhicule ? Ajoutez le au garage de location !</p>
             <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('voitures/add') ?>">Ajouter</a>
           </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="service-box">
           <div class="service-desc">
           <h5>Ajouter un conducteur</h5>
-            <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+            <p>Un nouveau client ? Ajoutez le au carnet d'adresse de l'agence !</p>
             <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('conducteurs/add') ?>">Ajouter</a>
           </div>
         </div>
@@ -46,7 +46,7 @@
         <div class="service-box">
           <div class="service-desc">
           <h5>Ajouter une location</h5>
-            <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+            <p>Une demande de location ? Par ici, ajoutez la location à l'agence !</p>
             <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('locations/add') ?>">Ajouter</a>
           </div>
         </div>
@@ -57,7 +57,7 @@
         <div class="service-box">
           <div class="service-desc">
           <h5>Ajouter un employé</h5>
-            <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+            <p>Un nouvel employé à l'agence ? Ajoutez l'employé à l'équipe de l'agence!</p>
             <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('employees/add') ?>">Ajouter</a>
           </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="service-box">
           <div class="service-desc">
           <h5>Ajouter une agence</h5>
-            <p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+            <p>Extension de l'agence ? Ajoutez une nouvelle agence à la chaîne !</p>
             <a class="btn btn-success my-5 btn-lg d-flex justify-content-center"  href="<?= url('stores/add') ?>">Ajouter</a>
           </div>
         </div>

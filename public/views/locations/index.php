@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<section id="service" class="home-section text-center bg-gray">
+<section id="service" class="home-section text-center">
 
   <div class="heading-about">
     <div class="container">
@@ -32,7 +32,11 @@
           <h5>
           </h5>
           <p>
-              <?= $location->conducteur()->nomComplet() ;?>
+
+            <?= $location->conducteur()->nomComplet() ;?>
+          </p>
+          <p>
+              <?= $location->voiture()->marque();?> - <?= $location->voiture()->modele() ;?>
           </p>
           <p>Début de location : <br>
               <?= $location->dateDebutLoc() ;?>

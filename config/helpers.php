@@ -11,15 +11,16 @@ function url($route) {
 }
 
 function img_url($img) {
-    return $GLOBALS['BASE_URL'] . '/public/assets/img' . $img;
+    return $GLOBALS['BASE_URL'] . '/public/assets/img/' . $img;
 }
 
 function css_url($css) {
-    return $GLOBALS['BASE_URL'] . '/public/assets/css' . $css;
+
+    return $GLOBALS['BASE_URL'] . '/public/assets/css/' . $css;
 }
 
 function js_url($js) {
-    return $GLOBALS['BASE_URL'] . '/public/assets/js' . $js;
+    return $GLOBALS['BASE_URL'] . '/public/assets/js/' . $js;
 }
 
 function view($path, $vars = null, $include = true) {
@@ -31,7 +32,7 @@ function view($path, $vars = null, $include = true) {
     }
     $url = substr($url, 0, -1);
     $url .= '.php';
-    
+
     $fullUrl = 'public/views/' . $url;
     if ($include) {
         if ($vars) { extract($vars); }
@@ -47,7 +48,7 @@ function pdoSqlDebug($request, $data = null) {
             $request = preg_replace('/:'.$k.'/',"'".$v."'", $request);
         }
     }
-    
+
 
     $oldData = '';
 

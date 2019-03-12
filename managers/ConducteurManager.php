@@ -31,7 +31,7 @@ class ConducteurManager extends AbstractManager {
 
     public function update(Conducteur $conducteur) {
 
-        if ($conducteur->id > 0) {
+        if ($conducteur->id() > 0) {
 
             $data = [
                 'nom'           => $conducteur->nom(),
@@ -59,7 +59,7 @@ class ConducteurManager extends AbstractManager {
         Db::dbDelete($this->tableName, $data);
 
         // On supprime aussi toutes les loc
-        Db::dbDelete('location', [
+        Db::dbDelete($GLOBALS['DB_PREFIX'] . 'location', [
             'id_conducteur' => $conducteur->id()
         ]);
 

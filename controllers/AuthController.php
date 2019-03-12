@@ -83,7 +83,7 @@ class AuthController extends Db {
                     $_SESSION['admin'] = serialize($adminDb);
                     // Maintenant que l'utilisateur est créé et la session créée, on
                     // redirige vers la page d'accueil
-                    Header('Location: ' . url('/'));
+                    Header('Location: ' . url('/admin'));
                 }
                 else {
                     throw new Exception('Les identifiants sont invalides.');
