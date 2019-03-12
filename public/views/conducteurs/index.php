@@ -27,7 +27,7 @@
       <?php
     foreach ($conducteurs as $conducteur) {
      ?>
-      <div class="col-md-3">
+      <div class="col-md-3 mb-5">
         <div>
           <h5>
             <?= $conducteur->nomComplet() ;?>

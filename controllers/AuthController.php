@@ -45,7 +45,7 @@ class AuthController extends Db {
                         $_SESSION['admin'] = serialize($admin);
                         // Maintenant que l'utilisateur est créé et la session créée, on
                         // redirige vers la page d'accueil
-                        // Header('Location: ' . url('/admin'));
+                        Header('Location: ' . url('admin'));
                     }
                     throw new Exception('Une erreur est survenue lors de la création de l`utilisateur.');
                 }
@@ -71,7 +71,6 @@ class AuthController extends Db {
                 ['email', '=', $_POST['email']]
             ]);
 
-            var_dump($adminDb);
             // SI l'utilisateur existe, alors il est logué :
             if ($adminDb) {
                 $adminDb = $adminDb[0];
@@ -83,7 +82,7 @@ class AuthController extends Db {
                     $_SESSION['admin'] = serialize($adminDb);
                     // Maintenant que l'utilisateur est créé et la session créée, on
                     // redirige vers la page d'accueil
-                    Header('Location: ' . url('/admin'));
+                    Header('Location: ' . url('admin'));
                 }
                 else {
                     throw new Exception('Les identifiants sont invalides.');

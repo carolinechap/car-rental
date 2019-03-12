@@ -74,7 +74,7 @@ class Employee extends AbstractModel {
         return $this;
     }
     public function setEmploi($emploi){
-        $emploiAccepte = ['manager', 'responsable', 'stagiaire', 'conseiller'];
+        $emploiAccepte = ['Manager', 'Responsable', 'Stagiaire', 'Conseiller(e)'];
 
         if (strlen($emploi) == 0) {
             throw new Exception('L\'emploi ne peut pas être vide.');

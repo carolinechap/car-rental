@@ -6,7 +6,7 @@
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8 col-lg-offset-2  d-flex justify-content-center">
           <div class="section-heading">
-            <h2>Nos agences de location</h2>
+            <h2>Les employés</h2>
             <i class="fa fa-2x fa-angle-down"></i>
           </div>
         </div>
@@ -24,28 +24,46 @@
       </div>
     </div>
   </div>
-  <table class="table table-striped table-hover">
-    <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Poste</th>
-        <th>Ville (Pays)</th>
-        <th class="text-center">Suppression</th>
-    </tr>
+  <div class="mx-5">
 
-    <?php foreach($employees as $employee) : ?>
+
+    <?php if (empty($employees)) {}
+    else{ ?>
+
+    <table class="table table-striped table-hover display" id="tableEmployee">
+      <thead>
         <tr>
-          <td><?= $employee->nom() ;?></td>
-          <td><?= $employee->prenom() ;?></td>
-            <td><?= $employee->emploi() ;?></td>
-            <td><?= $employee->store()->ville() ;?> (<?= $employee->store()->pays() ;?>)</td>
-            <td class="text-center">
-            <a class="delete" href="<?= url('employees/delete/' . $employee->id()) ?>"><i class="fas fa-trash"></i></a>
-            </td>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Poste</th>
+          <th>Ville (Pays)</th>
+          <th class="text-center">Suppression</th>
         </tr>
-    <?php endforeach; ?>
-</table>
-</div>
+      </thead>
+      <tbody>
+        <?php foreach($employees as $employee) : ?>
+        <tr>
+          <td>
+            <?= $employee->nom() ;?>
+          </td>
+          <td>
+            <?= $employee->prenom() ;?>
+          </td>
+          <td>
+            <?= $employee->emploi() ;?>
+          </td>
+          <td>
+            <?= $employee->store()->ville() ;?> (
+            <?= $employee->store()->pays() ;?>)</td>
+          <td class="text-center">
+            <a class="delete" href="<?= url('employees/delete/' . $employee->id()) ?>"><i class="fas fa-trash"></i></a>
+          </td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+    <?php } ?>
+  </div>
 </section>
 
 

@@ -17,10 +17,10 @@
             <div class="form-group col-md-6">
                 <label for="inputVoiture">Poste occupé dans l'agence :</label>
                 <select name="emploi" class="custom-select">
-                    <option value="manager" title="Manager">Manager</option>
-                    <option value="responsable" title="Responsable">Responsable</option>
-                    <option value="stagiaire" title="Stagiaire">Stagiaire</option>
-                    <option value="conseiller" title="Conseiller">Conseiller</option>
+                    <option value="Manager" title="Manager">Manager</option>
+                    <option value="Responsable" title="Responsable">Responsable</option>
+                    <option value="Stagiaire" title="Stagiaire">Stagiaire</option>
+                    <option value="Conseiller(e)" title="Conseiller(e)">Conseiller(e)</option>
                 </select>
             </div>
             <div class="form-group col-md-6">

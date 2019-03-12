@@ -25,6 +25,7 @@ class EmployeesController {
 
         $stores = $sm->findAll();
         view('employees.add', compact('stores'));
+      
     }
 
     public function save() {
@@ -34,14 +35,14 @@ class EmployeesController {
 
         $employee = new Employee($_POST['nom'], $_POST['prenom'], $_POST['emploi'], $store);
         $this->manager->save($employee);
-        // Header('Location: '. url(''));
+        Header('Location: '. url('/employees'));
         // exit();
     }
 
     public function delete($id) {
         $employee = $this->manager->findOne($id);
         $this->manager->delete($employee);
-        // Header('Location: '. url(''));
+        Header('Location: '. url('/admin'));
         // exit();
     }
 }

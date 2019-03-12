@@ -17,11 +17,13 @@
     </div>
   </div>
   <div class="form-row mx-2">
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6 text-left">
+      <label for="MiseEnLocInput">Année de mise en location : </label>
     <input class="form-control" type ="date" name="annee_mise_location" placeholder="Année de mise en location">
     </div>
-    <div class="form-group col-md-6">
-    <input class="form-control" type="text" name="plaque_immat" placeholder="Plaque Immatriculation">
+    <div class="form-group col-md-6 text-left">
+    <label for="PlaqueImmatInput">Plaque d'immatriculation</label>
+    <input id="PlaqueImmatInput" class="form-control" type="text" name="plaque_immat">
     </div>
   </div>
   <button class="btn btn-success mt-5" type="submit">Ajouter une voiture au garage de la location</button>

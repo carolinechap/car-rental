@@ -24,6 +24,8 @@
       </div>
     </div>
   </div>
+  <?php if (empty($stores)) {}
+    else{ ?>
   <table class="table table-striped table-hover">
     <tr>
         <th>Ville</th>
@@ -41,6 +43,7 @@
         </tr>
     <?php endforeach; ?>
 </table>
+<?php } ?>
 </div>
 </section>
 
