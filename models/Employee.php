@@ -55,20 +55,20 @@ class Employee extends AbstractModel {
     }
     public function setNom($nom){
         if (strlen($nom) == 0) {
-            throw new Exception('Le nom ne peut pas être vide.');
+            throw new Exception('Veuillez remplir le champ nom.');
         }
         if (strlen($nom) > 150) {
-            throw new Exception('Le nom ne peut pas être supérieur à 150 caractères.');
+            throw new Exception('Le champ nom ne peut pas être supérieur à 150 caractères.');
         }
         $this->nom = $nom;
         return $this;
     }
     public function setPrenom($prenom){
         if (strlen($prenom) == 0) {
-            throw new Exception('Le prenom ne peut pas être vide.');
+            throw new Exception('Veuillez remplir le champ prénom.');
         }
         if (strlen($prenom) > 150) {
-            throw new Exception('Le prenom ne peut pas être supérieur à 150 caractères.');
+            throw new Exception('Le champ prenom ne peut pas être supérieur à 150 caractères.');
         }
         $this->prenom = $prenom;
         return $this;
@@ -77,7 +77,7 @@ class Employee extends AbstractModel {
         $emploiAccepte = ['Manager', 'Responsable', 'Stagiaire', 'Conseiller(e)'];
 
         if (strlen($emploi) == 0) {
-            throw new Exception('L\'emploi ne peut pas être vide.');
+            throw new Exception('Veuillez selectionner un emploi.');
         }
         if (!in_array($emploi, $emploiAccepte) ) {
             throw new Exception('L\'emploi n\'est pas accepté.');

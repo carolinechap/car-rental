@@ -26,6 +26,11 @@
     <input id="PlaqueImmatInput" class="form-control" type="text" name="plaque_immat">
     </div>
   </div>
+  <div class="form-row  justify-content-center mx-2">
+        <div class="form-group col-6 d-flex justify-content-center ">
+            <div id="errorsPage" style="display:none"></div>
+        </div>
+    </div>
   <button class="btn btn-success mt-5" type="submit">Ajouter une voiture au garage de la location</button>
 
 

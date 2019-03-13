@@ -27,10 +27,9 @@ $(document).ready( function () {
 
         }
     });
-} );
 
-$(document).ready( function () {
-    $('#tableConducteur').DataTable({
+
+    $('#tableLocation').DataTable({
         "order": [[ 3, "desc" ]],
         paging: false,
         responsive: true,
@@ -59,3 +58,4 @@ $(document).ready( function () {
         }
     });
 } );
+

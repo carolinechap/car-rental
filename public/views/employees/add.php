@@ -17,6 +17,7 @@
             <div class="form-group col-md-6">
                 <label for="inputVoiture">Poste occupé dans l'agence :</label>
                 <select name="emploi" class="custom-select">
+                    <option selected>Choisir un emploi</option>
                     <option value="Manager" title="Manager">Manager</option>
                     <option value="Responsable" title="Responsable">Responsable</option>
                     <option value="Stagiaire" title="Stagiaire">Stagiaire</option>
@@ -34,6 +35,11 @@
                 </select>
             </div>
         </div>
+        <div class="form-row  justify-content-center mx-2">
+        <div class="form-group col-6 d-flex justify-content-center ">
+            <div id="errorsPage" style="display:none"></div>
+        </div>
+    </div>
         <div class="d-flex justify-content-center">
             <button class="btn btn-success mt-5" type="submit">Ajouter un employé à l'agence</button>
         </div>

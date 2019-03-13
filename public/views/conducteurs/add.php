@@ -27,7 +27,12 @@
     <input class="form-control" type="text" name="pays" placeholder="Pays">
     </div>
   </div>
-
+  <div class="form-row  justify-content-center mx-2">
+        <div class="form-group col-6 d-flex justify-content-center ">
+            <div id="errorsPage" style="display:none"></div>
+        </div>
+    </div>
+    
   <button class="btn btn-success mt-5" type="submit">Ajouter un conducteur</button>
 
 </form>

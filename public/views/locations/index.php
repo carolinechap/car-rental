@@ -29,7 +29,7 @@
       <?php if (empty($locations)) {}
     else{ ?>
 
-      <table class="table table-striped table-hover display" id="tableEmployee">
+      <table class="table table-striped table-hover display" id="tableLocation">
         <thead>
           <tr>
             <th>Nom</th>
@@ -54,10 +54,10 @@
               <?= $location->voiture()->marque();?> -
               <?= $location->voiture()->modele() ;?>
             </td>
-            <td>
+            <td data-sort="<?= $location->dateDebutLocTimestamp(); ?>">
               <?= $location->dateDebutLoc() ;?>
             </td>
-            <td>
+            <td data-sort="<?= $location->dateFinLocTimestamp(); ?>">
               <?=$location->dateFinLoc() ; ?>
             </td>
             <td>

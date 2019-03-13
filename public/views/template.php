@@ -9,7 +9,7 @@
     crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic'" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <link href="<?= css_url('style.css') ?>" rel="stylesheet"> 
+    <link href="<?= css_url('style.css') ?>" rel="stylesheet">
 
   <title>Location de voiture</title>
 </head>
@@ -27,6 +27,8 @@
   </div>
 </nav>
 
+<div id="errorsDefault" style="display:none"></div>
+
   <?= $content ?>
 
 
@@ -37,6 +39,47 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript" src="<?= js_url('script.js') ?>"></script>
+
+
+
+<?php
+  if (isset($_SESSION['exceptions'])) { ?>
+<script>
+
+var err = [];
+    <?php foreach ($_SESSION['exceptions'] as $e) { ?>
+          err.push(<?php echo json_encode($e); ?>);
+    <?php } ?>
+
+
+    console.log(err);
+    if ( $('#errorsPage').length > 0 ) {
+
+        for (let i = 0; i < err.length; i++) {
+          const e = err[i];
+
+          $('#errorsPage').show().html('<div class="alert alert-danger" role="alert">'+e+'</div>');
+
+        }
+
+    }
+    else {
+
+      for (let i = 0; i < err.length; i++) {
+          const e = err[i];
+
+          $('#errorsDefault').show().html('<div class="alert alert-danger" role="alert">'+e+'</div>');
+
+        }
+
+    }
+</script>
+
+    <?php
+    unset($_SESSION['exceptions']);
+  }
+
+?>
 
 </body>
 

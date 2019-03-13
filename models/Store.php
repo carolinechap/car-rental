@@ -35,20 +35,20 @@ class Store extends AbstractModel {
 
     public function setVille($ville){
         if (strlen($ville) == 0) {
-            throw new Exception('La ville ne peut pas être vide.');
+            throw new Exception('Veuillez remplir le champ ville.');
         }
         if (strlen($ville) > 150) {
-            throw new Exception('La ville ne peut pas être supérieur à 150 caractères.');
+            throw new Exception('Le champ ville ne peut pas être supérieur à 150 caractères.');
         }
         $this->ville = $ville;
         return $this;
     }
     public function setPays($pays){
         if (strlen($pays) == 0) {
-            throw new Exception('Le pays ne peut pas être vide.');
+            throw new Exception('Veuillez remplir le champ pays.');
         }
         if (strlen($pays) > 150) {
-            throw new Exception('Le pays ne peut pas être supérieur à 150 caractères.');
+            throw new Exception('Le champ pays ne peut pas être supérieur à 150 caractères.');
         }
         $this->pays = $pays;
         return $this;

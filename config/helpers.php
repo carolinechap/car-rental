@@ -57,3 +57,9 @@ function pdoSqlDebug($request, $data = null) {
 
     return $request;
 }
+
+function exceptionHandler (Exception $e) {
+    $_SESSION['exceptions'][] = $e->getMessage();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+
+}

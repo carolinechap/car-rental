@@ -22,7 +22,7 @@ class AuthController extends Db {
             $adminDb = $am->find([
                 ['email', '=', $_POST['email'] ]
             ]);
-            // SI $userDb existe, alors l'e-mail n'est pas unique,
+            // SI $adminDb existe, alors l'e-mail n'est pas unique,
             // donc l'utilisateur existe, donc on redirige vers la page Login.
             if ($adminDb)  {
                 throw new Exception('Un utilisateur avec cette adresse existe déjà.');

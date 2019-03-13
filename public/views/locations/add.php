@@ -59,6 +59,11 @@
             </select>
         </div>
     </div>
+    <div class="form-row  justify-content-center mx-2">
+        <div class="form-group col-6 d-flex justify-content-center ">
+            <div id="errorsPage" style="display:none"></div>
+        </div>
+    </div>
     <div class="d-flex justify-content-center">
         <button class="btn btn-success mt-5" type="submit">Ajouter une location</button>
     </div>

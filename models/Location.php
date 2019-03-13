@@ -65,6 +65,12 @@ class Location extends AbstractModel {
         return $dateUsDeb;
     }
 
+    public function dateDebutLocTimestamp(){
+        $dateDeb = new DateTime($this->dateDebutLoc);
+        $dateUsDeb = $dateDeb->getTimestamp();
+        return $dateUsDeb;
+    }
+
 
     public function dateFinLoc(){
         $dateFin = new DateTime($this->dateFinLoc);
@@ -74,6 +80,12 @@ class Location extends AbstractModel {
     public function dateFinLocUs(){
         $dateFin = new DateTime($this->dateFinLoc);
         $dateUsFin = $dateFin->format('Y-m-d');
+        return $dateUsFin;
+    }
+
+    public function dateFinLocTimestamp(){
+        $dateFin = new DateTime($this->dateFinLoc);
+        $dateUsFin = $dateFin->getTimestamp();
         return $dateUsFin;
     }
 
@@ -98,10 +110,10 @@ class Location extends AbstractModel {
 
     public function setVille($ville){
         if (strlen($ville) == 0) {
-            throw new Exception('La ville ne peut pas être vide.');
+            throw new Exception('Veuillez remplir le champ ville.');
         }
         if (strlen($ville) > 150) {
-            throw new Exception('La ville ne peut pas être supérieur à 150 caractères.');
+            throw new Exception('Le champ "ville" ne peut pas être supérieur à 150 caractères.');
         }
         $this->ville = $ville;
         return $this;
